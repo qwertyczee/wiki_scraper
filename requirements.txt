@@ -1,0 +1,2 @@
+wikipedia-api==0.5.8
+tqdm==4.65.0
