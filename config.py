@@ -1,302 +1,55 @@
 # config.py
-CATEGORIES_1 = [
-    'Přírodní_vědy',
-    'Fyzika',
-    'Chemie',
-    'Biologie',
-    'Astronomie',
-    'Matematika',
-    'Geologie',
-    'Informatika',
-    'Inženýrství',
-    'Medicína',
-    'Technologie',
-    'Genetika',
-    'Robotika',
-    'Aplikovaná_fyzika',
-    'Kybernetika',
-    'Umělá_inteligence',
-    'Nanotechnologie',
-    'Bioinformatika',
-    'Meteorologie',
-    'Paleontologie',
-    'Evoluce',
-    'Kvantová_fyzika',
-    'Termodynamika',
-    'Optika',
-    'Mechanika',
-    'Organická_chemie',
-    'Anorganická_chemie',
-    'Biochemie',
-    'Analytická_chemie',
-    'Počítačová_věda',
-    'Strojové_učení',
-    'Programování',
-    'Databáze',
-    'Internet',
-    'Počítačové_sítě',
-    'Operační_systémy',
-    'Kryptografie',
-    'Bezpečnost',
-    'Software',
-    'Hardware',
-    'Mobilní_technologie',
-    'Virtuální_realita',
-    'Rozšířená_realita',
-    'Vědecký_výzkum',
-    'Kosmonautika',
-    'Biotechnologie',
+import aiohttp
+import asyncio
+import logging
+
+async def fetch_categories():
+    """Asynchronně získá kategorie z Wikipedia API."""
+    api_url = "https://cs.wikipedia.org/w/api.php"
+    params = {
+        "action": "query",
+        "list": "allcategories",
+        "aclimit": 500,
+        "format": "json"
+    }
+    
+    categories = []
+    
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(api_url, params=params) as response:
+                if response.status == 200:
+                    data = await response.json()
+                    # Extrahuje názvy kategorií z odpovědi
+                    for category in data["query"]["allcategories"]:
+                        categories.append(category["*"])
+                else:
+                    logging.error(f"Failed to fetch categories: {response.status}")
+    except Exception as e:
+        logging.error(f"Error fetching categories: {str(e)}")
+    
+    return categories
+
+# Získání kategorií synchronně
+def get_categories():
+    return asyncio.run(fetch_categories())
+
+SUBREDDITS = [
+    'czech',
+    'cesky',
+    'realCzech',
+    'Czechia',
+    'Brno',
+    'MenTy',
+    'SirYakari'
 ]
 
-CATEGORIES_2 = [
-    'Fyzikální_výzkum',
-    'Chemický_výzkum',
-    'Přírodovědný_výzkum',
-    'Teorie_chaosu',
-    'Biofyzika',
-    'Genomika',
-    'Neurovědy',
-    'Mikrobiologie',
-    'Historie',
-    'Filozofie',
-    'Psychologie',
-    'Sociologie',
-    'Ekonomie',
-    'Politologie',
-    'Právo',
-    'Pedagogika',
-    'Archeologie',
-    'Antropologie',
-    'Etika',
-    'Sociální_práce',
-    'Politická_filosofie',
-    'Kultura_a_společnost',
-    'Genderové_studie',
-    'Lidská_práva',
-    'Trestní_právo',
-    'Jazykověda',
-    'Světové_jazyky',
-    'Překladatelství',
-    'Lingvistika',
-    'Rétorika',
-    'Demografie',
-    'Etnografie',
-    'Folkloristika',
-    'Územní_plánování',
-]
+MAX_CONVERSATIONS_PER_SUBREDDIT = 5000
 
-CATEGORIES_3 = [
-    'Literatura',
-    'Hudba',
-    'Výtvarné_umění',
-    'Film',
-    'Divadlo',
-    'Architektura',
-    'Fotografie',
-    'Tanec',
-    'České_umění',
-    'Světová_kultura',
-    'Kresba',
-    'Sochařství',
-    'Design',
-    'Móda',
-    'Teorie_umění',
-    'Moderní_umění',
-    'Pop_kultura',
-    'Hudební_genre',
-    'Muzejnictví',
-    'Knihovnictví',
-    'Archivnictví',
-    'Numismatika',
-    'Heraldika',
-    'Genealogie',
-    'Dramaturgie',
-    'Scenáristika',
-    'Režie',
-    'Kamera',
-    'Střih',
-    'Zvuk',
-    'Speciální_efekty',
-    'Animace',
-    'Videoherní_průmysl',
-    'Grafický_design',
-    'Průmyslový_design',
-    'Interiérový_design',
-    'Módní_návrhářství',
-    'Textilní_průmysl',
-    'Sklářství',
-    'Keramika',
-    'Šperkařství',
-    'Řemesla',
-]
-
-CATEGORIES_4 = [
-    'Náboženství',
-    'Mytologie',
-    'Společnost',
-    'Politika',
-    'Vzdělávání',
-    'Média',
-    'Žurnalistika',
-    'Migrantství',
-    'Rodina',
-    'Společenské_hnutí',
-    'Násilí',
-    'Zločin',
-    'Konzumerismus',
-    'Genderová_rovnost',
-    'Pracovní_práva',
-    'Sociální_sítě',
-    'Digitální_marketing',
-    'E-commerce',
-    'Finanční_trhy',
-    'Bankovnictví',
-    'Pojišťovnictví',
-    'Management',
-    'Podnikání',
-    'Marketing',
-    'Reklama',
-    'Public_relations',
-    'Logistika',
-    'Mezinárodní_obchod',
-    'Daně',
-    'Účetnictví',
-]
-
-CATEGORIES_5 = [
-    'Geografie',
-    'Česká_republika',
-    'Evropa',
-    'Světové_dějiny',
-    'Cestování',
-    'Města',
-    'Hory',
-    'Řeky',
-    'Oceány',
-    'Státy',
-    'Kontinenty',
-    'Turismus',
-    'Geopolitika',
-    'Podnebí',
-    'Vulkanismus',
-    'Oceánografie',
-    'Kartografie',
-    'Urbanismus',
-    'Sport',
-    'Olympijské_hry',
-    'Fotbal',
-    'Hokej',
-    'Atletika',
-    'Tenis',
-    'Zimní_sporty',
-    'Plavání',
-    'Golf',
-    'Box',
-    'Jízda_na_koni',
-    'Rugby',
-    'Kricket',
-    'Cyklistika',
-    'Šachy',
-    'E-sporty',
-    'Týmové_sporty',
-]
-
-CATEGORIES_6 = [
-    'Zoologie',
-    'Botanika',
-    'Ekologie',
-    'Ochrana_přírody',
-    'Savci',
-    'Ptáci',
-    'Hmyz',
-    'Rostliny',
-    'Mořské_ekosystémy',
-    'Endemické_drůhy',
-    'Biom',
-    'Lesy',
-    'Jezera',
-    'Přírodní_zdroje',
-    'Ohrožené_druhy',
-    'Rekultivace',
-    'Biodiverzita',
-    'Ekosystémy',
-    'Environmentalistika',
-    'Klimatické_změny',
-    'Obnovitelné_zdroje',
-    'Odpadové_hospodářství',
-    'Recyklace',
-    'Udržitelný_rozvoj',
-    'Seismologie',
-    'Vulkanologie',
-]
-
-CATEGORIES_7 = [
-    'Jídlo',
-    'Nápoje',
-    'Móda',
-    'Životní_styl',
-    'Volný_čas',
-    'Domácnost',
-    'Zahrada',
-    'Péče_o_tělo',
-    'Hračky',
-    'Osobní_rozvoj',
-    'Rodinný_život',
-    'Kutilství',
-    'Zdraví',
-    'Gastronomie',
-    'Vinařství',
-    'Pivovarnictví',
-    'Cukrářství',
-    'Pekařství',
-]
-
-CATEGORIES_8 = [
-    'Doprava',
-    'Automobily',
-    'Letectví',
-    'Průmysl',
-    'Stavebnictví',
-    'Elektrotechnika',
-    'Strojírenství',
-    'Informační_technologie',
-    'Telekomunikace',
-    'Energetika',
-    'Vesmírný_průmysl',
-    'Výroba',
-    'Automatizace',
-    '3D_tisk',
-    'Vojenská_technika',
-    'Jaderná_energie',
-    'Alternativní_medicína',
-    'Farmakologie',
-    'Psychiatrie',
-    'Neurologie',
-    'Kardiologie',
-    'Onkologie',
-    'Památková_péče',
-    'Restaurátorství',
-    'Software',
-    'Hardware',
-    'Mobilní_technologie',
-]
-CATEGORIES_9 = [
-    'Starověké_civilizace',
-    'Středověk',
-    'Novověk',
-    'Moderní_dějiny',
-    'Vojenství',
-    'Námořnictví',
-    'Významné_osobnosti',
-]
-
-
-CATEGORIES = CATEGORIES_1 + CATEGORIES_2 + CATEGORIES_3 + CATEGORIES_4 + CATEGORIES_5 + CATEGORIES_6 + CATEGORIES_7 + CATEGORIES_8 + CATEGORIES_9
-
-
-# Zvýšení počtu článků na kategorii
+# Konstanty pro scraping
 MAX_ARTICLES_PER_CATEGORY = 20000
 BATCH_SIZE = 100
-
-# Přidání nové konstanty pro minimální délku článku
 MIN_ARTICLE_LENGTH = 1000  # znaků
+
+# Dynamicky načtené kategorie
+CATEGORIES = get_categories()

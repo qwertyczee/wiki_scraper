@@ -1,4 +1,7 @@
 dataset/
+checkpoints
+conversation_dataset/
+tokenizer/
 processed_dataset/
 __pycache__/
 scraper.log
