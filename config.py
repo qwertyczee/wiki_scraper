@@ -1,6 +1,5 @@
 # config.py
-CATEGORIES = [
-    # Věda a technika
+CATEGORIES_1 = [
     'Přírodní_vědy',
     'Fyzika',
     'Chemie',
@@ -12,8 +11,52 @@ CATEGORIES = [
     'Inženýrství',
     'Medicína',
     'Technologie',
-    
-    # Společenské vědy
+    'Genetika',
+    'Robotika',
+    'Aplikovaná_fyzika',
+    'Kybernetika',
+    'Umělá_inteligence',
+    'Nanotechnologie',
+    'Bioinformatika',
+    'Meteorologie',
+    'Paleontologie',
+    'Evoluce',
+    'Kvantová_fyzika',
+    'Termodynamika',
+    'Optika',
+    'Mechanika',
+    'Organická_chemie',
+    'Anorganická_chemie',
+    'Biochemie',
+    'Analytická_chemie',
+    'Počítačová_věda',
+    'Strojové_učení',
+    'Programování',
+    'Databáze',
+    'Internet',
+    'Počítačové_sítě',
+    'Operační_systémy',
+    'Kryptografie',
+    'Bezpečnost',
+    'Software',
+    'Hardware',
+    'Mobilní_technologie',
+    'Virtuální_realita',
+    'Rozšířená_realita',
+    'Vědecký_výzkum',
+    'Kosmonautika',
+    'Biotechnologie',
+]
+
+CATEGORIES_2 = [
+    'Fyzikální_výzkum',
+    'Chemický_výzkum',
+    'Přírodovědný_výzkum',
+    'Teorie_chaosu',
+    'Biofyzika',
+    'Genomika',
+    'Neurovědy',
+    'Mikrobiologie',
     'Historie',
     'Filozofie',
     'Psychologie',
@@ -24,8 +67,25 @@ CATEGORIES = [
     'Pedagogika',
     'Archeologie',
     'Antropologie',
-    
-    # Kultura a umění
+    'Etika',
+    'Sociální_práce',
+    'Politická_filosofie',
+    'Kultura_a_společnost',
+    'Genderové_studie',
+    'Lidská_práva',
+    'Trestní_právo',
+    'Jazykověda',
+    'Světové_jazyky',
+    'Překladatelství',
+    'Lingvistika',
+    'Rétorika',
+    'Demografie',
+    'Etnografie',
+    'Folkloristika',
+    'Územní_plánování',
+]
+
+CATEGORIES_3 = [
     'Literatura',
     'Hudba',
     'Výtvarné_umění',
@@ -36,8 +96,41 @@ CATEGORIES = [
     'Tanec',
     'České_umění',
     'Světová_kultura',
-    
-    # Společnost
+    'Kresba',
+    'Sochařství',
+    'Design',
+    'Móda',
+    'Teorie_umění',
+    'Moderní_umění',
+    'Pop_kultura',
+    'Hudební_genre',
+    'Muzejnictví',
+    'Knihovnictví',
+    'Archivnictví',
+    'Numismatika',
+    'Heraldika',
+    'Genealogie',
+    'Dramaturgie',
+    'Scenáristika',
+    'Režie',
+    'Kamera',
+    'Střih',
+    'Zvuk',
+    'Speciální_efekty',
+    'Animace',
+    'Videoherní_průmysl',
+    'Grafický_design',
+    'Průmyslový_design',
+    'Interiérový_design',
+    'Módní_návrhářství',
+    'Textilní_průmysl',
+    'Sklářství',
+    'Keramika',
+    'Šperkařství',
+    'Řemesla',
+]
+
+CATEGORIES_4 = [
     'Náboženství',
     'Mytologie',
     'Společnost',
@@ -45,8 +138,32 @@ CATEGORIES = [
     'Vzdělávání',
     'Média',
     'Žurnalistika',
-    
-    # Geografie a cestování
+    'Migrantství',
+    'Rodina',
+    'Společenské_hnutí',
+    'Násilí',
+    'Zločin',
+    'Konzumerismus',
+    'Genderová_rovnost',
+    'Pracovní_práva',
+    'Sociální_sítě',
+    'Digitální_marketing',
+    'E-commerce',
+    'Finanční_trhy',
+    'Bankovnictví',
+    'Pojišťovnictví',
+    'Management',
+    'Podnikání',
+    'Marketing',
+    'Reklama',
+    'Public_relations',
+    'Logistika',
+    'Mezinárodní_obchod',
+    'Daně',
+    'Účetnictví',
+]
+
+CATEGORIES_5 = [
     'Geografie',
     'Česká_republika',
     'Evropa',
@@ -55,8 +172,16 @@ CATEGORIES = [
     'Města',
     'Hory',
     'Řeky',
-    
-    # Sport a zábava
+    'Oceány',
+    'Státy',
+    'Kontinenty',
+    'Turismus',
+    'Geopolitika',
+    'Podnebí',
+    'Vulkanismus',
+    'Oceánografie',
+    'Kartografie',
+    'Urbanismus',
     'Sport',
     'Olympijské_hry',
     'Fotbal',
@@ -64,8 +189,19 @@ CATEGORIES = [
     'Atletika',
     'Tenis',
     'Zimní_sporty',
-    
-    # Příroda
+    'Plavání',
+    'Golf',
+    'Box',
+    'Jízda_na_koni',
+    'Rugby',
+    'Kricket',
+    'Cyklistika',
+    'Šachy',
+    'E-sporty',
+    'Týmové_sporty',
+]
+
+CATEGORIES_6 = [
     'Zoologie',
     'Botanika',
     'Ekologie',
@@ -74,16 +210,27 @@ CATEGORIES = [
     'Ptáci',
     'Hmyz',
     'Rostliny',
-    
-    # Věda a výzkum
-    'Vynálezy',
-    'Objevy',
-    'Vědecký_výzkum',
-    'Kosmonautika',
-    'Biotechnologie',
-    'Nanotechnologie',
-    
-    # Každodenní život
+    'Mořské_ekosystémy',
+    'Endemické_drůhy',
+    'Biom',
+    'Lesy',
+    'Jezera',
+    'Přírodní_zdroje',
+    'Ohrožené_druhy',
+    'Rekultivace',
+    'Biodiverzita',
+    'Ekosystémy',
+    'Environmentalistika',
+    'Klimatické_změny',
+    'Obnovitelné_zdroje',
+    'Odpadové_hospodářství',
+    'Recyklace',
+    'Udržitelný_rozvoj',
+    'Seismologie',
+    'Vulkanologie',
+]
+
+CATEGORIES_7 = [
     'Jídlo',
     'Nápoje',
     'Móda',
@@ -91,19 +238,64 @@ CATEGORIES = [
     'Volný_čas',
     'Domácnost',
     'Zahrada',
-    
-    # Technika a průmysl
+    'Péče_o_tělo',
+    'Hračky',
+    'Osobní_rozvoj',
+    'Rodinný_život',
+    'Kutilství',
+    'Zdraví',
+    'Gastronomie',
+    'Vinařství',
+    'Pivovarnictví',
+    'Cukrářství',
+    'Pekařství',
+]
+
+CATEGORIES_8 = [
     'Doprava',
     'Automobily',
     'Letectví',
     'Průmysl',
     'Stavebnictví',
     'Elektrotechnika',
-    'Robotika'
+    'Strojírenství',
+    'Informační_technologie',
+    'Telekomunikace',
+    'Energetika',
+    'Vesmírný_průmysl',
+    'Výroba',
+    'Automatizace',
+    '3D_tisk',
+    'Vojenská_technika',
+    'Jaderná_energie',
+    'Alternativní_medicína',
+    'Farmakologie',
+    'Psychiatrie',
+    'Neurologie',
+    'Kardiologie',
+    'Onkologie',
+    'Památková_péče',
+    'Restaurátorství',
+    'Software',
+    'Hardware',
+    'Mobilní_technologie',
+]
+CATEGORIES_9 = [
+    'Starověké_civilizace',
+    'Středověk',
+    'Novověk',
+    'Moderní_dějiny',
+    'Vojenství',
+    'Námořnictví',
+    'Významné_osobnosti',
 ]
 
+
+CATEGORIES = CATEGORIES_1 + CATEGORIES_2 + CATEGORIES_3 + CATEGORIES_4 + CATEGORIES_5 + CATEGORIES_6 + CATEGORIES_7 + CATEGORIES_8 + CATEGORIES_9
+
+
 # Zvýšení počtu článků na kategorii
-MAX_ARTICLES_PER_CATEGORY = 2000
+MAX_ARTICLES_PER_CATEGORY = 20000
 BATCH_SIZE = 100
 
 # Přidání nové konstanty pro minimální délku článku
